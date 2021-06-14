@@ -38,6 +38,6 @@ jobs:
          
       - name: Show Response
         run: |
-           git log ${{steps.saveResponse.outputs.tag1}}..${{steps.saveResponse.outputs.tag2}} --reverse --merges  --grep='Merge pull request #'
+           echo `git log ${{steps.saveResponse.outputs.tag1}}..${{steps.saveResponse.outputs.tag2}} --reverse --merges  --grep='Merge pull request #'`
            
       
