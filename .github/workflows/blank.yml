@@ -37,7 +37,7 @@ jobs:
          echo "::set-output name=tag2::$tag2"
          
       - name: Show Response
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - run: git log ${{steps.saveResponse.outputs.tag1}}..${{steps.saveResponse.outputs.tag2}} --reverse --merges  --grep='Merge pull request #'
            
       
