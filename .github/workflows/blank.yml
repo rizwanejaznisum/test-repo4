@@ -31,6 +31,6 @@ jobs:
       - name: Save Response
         id: saveResponse
         run: |
-         echo "${{ steps.myRequest.outputs.response }}" | jq '.[0].tag_name'
+         echo '${{ fromJson(steps.myRequest.outputs.response) }}' | jq '.[0].tag_name'
            
       
