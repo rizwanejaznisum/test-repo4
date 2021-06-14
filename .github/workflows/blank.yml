@@ -36,8 +36,15 @@ jobs:
          echo "::set-output name=tag1::$tag1"
          echo "::set-output name=tag2::$tag2"
          
-      - name: Show Response
+      - name: Run Cmd
+        id: runCmd
         uses: actions/checkout@v2
-      - run: "echo git log ${{steps.saveResponse.outputs.tag1}}..${{steps.saveResponse.outputs.tag2}} --reverse --merges  --grep='Merge pull request'"
+      - run: |
+          result="echo git log ${{steps.saveResponse.outputs.tag1}}..${{steps.saveResponse.outputs.tag2}} --reverse --merges  --grep='Merge pull request'"
+          echo "::set-output name=cmdResult::$result"
+          
+      - name: Show Result
+        run: echo "${{steps.runCmd.outputs.cmdResult}}"
+          
            
       
