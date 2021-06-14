@@ -32,7 +32,7 @@ jobs:
         id: saveResponse
         run: |
          echo `tag1='${{ steps.myRequest.outputs.response }}' | jq '.[0].tag_name'`
-         echo "::set-output name=$tag1::"
+         echo "::set-output name=tag1::$tag1"
          
       - name: Show Response
         run: |
